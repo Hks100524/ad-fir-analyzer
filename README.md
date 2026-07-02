@@ -99,7 +99,3 @@ Add project screenshots here when available.
 - Ad Clustering
 - Landing Page Section Suggestions
 - PDF Export
-
-## License
-
-MIT
