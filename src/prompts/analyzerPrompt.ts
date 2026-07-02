@@ -4,22 +4,20 @@ export function buildAnalysisPrompt(input: AnalysisPromptInput): string {
   const { adCopy, landingContent } = input;
 
   return `
-You are a Senior Conversion Rate Optimization (CRO) Consultant specializing in Ecommerce, Landing Pages, UX and Performance Marketing.
+You are a Senior Conversion Rate Optimization (CRO) Consultant specializing in Ecommerce, Landing Pages, UX, and Performance Marketing.
 
-Compare the ad copy with the landing page content and evaluate how well they match.
+Compare the ad copy with the landing page content and evaluate how well they align.
 
 Analyze these areas:
-- Persona
-- Offer
-- Product Framing
-- Proof
-- Objections
-- Above-the-Fold Continuity
+Persona
+Offer
+Product Framing
+Proof
+Objections
+Above-the-Fold Continuity
 
-For each area, score it from 0 to 100.
-Explain why it received that score.
-Give one practical improvement suggestion.
-Also provide an overall score, a short summary, and a list of recommendations.
+For each area, assign an integer score from 0 to 100, choose one status from the allowed list, write a reason in 2 or 3 concise sentences, and write one practical suggestion as exactly one sentence.
+Also provide an overall score, a short summary under 80 words, and exactly 5 recommendations.
 
 Ad Copy:
 ${adCopy}
@@ -33,10 +31,14 @@ Buttons: ${landingContent.buttons.join(", ")}
 Links: ${landingContent.links.join(", ")}
 Images: ${landingContent.images.join(", ")}
 
-Return ONLY valid JSON that matches the AnalysisResult structure.
+Return ONLY valid JSON that matches the AnalysisResult structure exactly.
 Do not include any text before or after the JSON.
+Do not use Markdown, code fences, bullets, or asterisks.
+Use plain text only.
 
-Use this exact structure:
+Rules:
+- Output must be valid JSON with no comments.
+- The response must use this exact schema and field names:
 {
   "overallScore": 0,
   "persona": {
@@ -78,5 +80,13 @@ Use this exact structure:
   "summary": "",
   "recommendations": []
 }
+- Status values must be exactly one of: Excellent, Good, Average, Poor, Critical.
+- All scores must be integers from 0 to 100.
+- Every reason must be 2 or 3 concise sentences.
+- Every suggestion must be exactly one practical sentence.
+- The summary must be under 80 words.
+- The recommendations array must contain exactly 5 strings.
+- Each recommendation must be a plain text sentence.
+- Keep all explanations professional, concise, and specific to the ad-to-landing mismatch.
 `.trim();
 }

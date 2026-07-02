@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white/80 px-6 py-10 text-center shadow-sm backdrop-blur sm:px-8 sm:py-12 lg:px-12">
+    <section className="rounded-[2rem] border border-slate-200 bg-white/90 px-6 py-10 text-center shadow-[0_16px_50px_rgba(15,23,42,0.06)] backdrop-blur sm:px-8 sm:py-12 lg:px-12 lg:py-14">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
         <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-600">
           AI-Powered Landing Page Analysis
@@ -15,13 +15,13 @@ export function Hero() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-2 pt-2">
-          <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700">
+          <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 shadow-sm">
             AI Analysis
           </span>
-          <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700">
+          <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 shadow-sm">
             Landing Page Audit
           </span>
-          <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700">
+          <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 shadow-sm">
             Actionable Insights
           </span>
         </div>
